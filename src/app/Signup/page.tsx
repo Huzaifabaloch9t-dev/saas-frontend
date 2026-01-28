@@ -8,32 +8,24 @@ export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
   const register = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!name || !email || !password) {
       setError("⚠️ All fields are required.");
       return;
     }
-
     try {
       setLoading(true);
       setError("");
       setSuccess("");
 
-      await api.post("/auth/register", {
-        name,
-        email,
-        password, // backend schema ke mutabiq
-      });
+      await api.post("/auth/register", { name, email, password });
 
       setSuccess("✅ Account created successfully. Redirecting to login...");
-
       setTimeout(() => {
         window.location.href = "/login";
       }, 1500);
@@ -52,9 +44,21 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-indigo-600 via-purple-600 to-pink-600 px-4">
-      <div className="w-full max-w-md bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-white/20">
+    <div className="relative min-h-screen flex items-center justify-center">
+      {/* ✅ Full screen background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('/laptaop.png')",
+        }}
+      ></div>
 
+      {/* ✅ Dark overlay + blur */}
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+      {/* ✅ Form container */}
+      <div className="relative z-10 w-full max-w-md bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-white/20">
         <div className="text-center mb-8">
           <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-white/20 flex items-center justify-center text-2xl">
             🤖

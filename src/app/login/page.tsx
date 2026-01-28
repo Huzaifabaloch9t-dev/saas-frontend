@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { api } from "../../services/api";
 import { Mail, Lock, Loader2, WifiOff } from "lucide-react";
@@ -19,15 +20,12 @@ export default function Login() {
       setLoading(true);
       setError("");
 
-      const res = await api.post("/auth/login", {
-        email,
-        password,
-      });
+      const res = await api.post("/auth/login", { email, password });
 
       localStorage.setItem("token", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user)); // optional
+      localStorage.setItem("user", JSON.stringify(res.data.user));
 
-      window.location.href = "/dashboard";
+      window.location.href = "/dashboard"; // spelling fix
     } catch (err: any) {
       if (!err.response) {
         setError("🚫 Server is not reachable. Please try again later.");
@@ -40,17 +38,27 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-indigo-600 via-purple-600 to-pink-600 px-4">
-      <div className="w-full max-w-md bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-white/20">
+    <div className="relative min-h-screen flex items-center justify-center">
+      {/* ✅ Full-screen background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('/laptaop.png')",
+        }}
+      ></div>
 
+      {/* ✅ Dark overlay + blur */}
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+      {/* ✅ Form container */}
+      <div className="relative z-10 w-full max-w-md bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-white/20">
         <div className="text-center mb-8">
           <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-white/20 flex items-center justify-center text-2xl">
             🤖
           </div>
           <h1 className="text-3xl font-bold text-white">Welcome Back</h1>
-          <p className="text-white/70 mt-1">
-            Login to your AI Dashboard
-          </p>
+          <p className="text-white/70 mt-1">Login to your AI Dashboard</p>
         </div>
 
         {error && (
@@ -99,7 +107,7 @@ export default function Login() {
 
         <p className="text-center text-white/70 text-sm mt-6">
           Don’t have an account?{" "}
-          <a href="/Signup" className="text-white font-semibold hover:underline">
+          <a href="/register" className="text-white font-semibold hover:underline">
             Sign up
           </a>
         </p>
