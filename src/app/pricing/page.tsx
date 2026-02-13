@@ -14,6 +14,7 @@ export default function Pricing() {
     <div className="p-10 text-center">
       <h1 className="text-4xl mb-6">Pro Plan</h1>
       <p className="mb-6">$10 / month</p>
+      console.log(object)
       <button onClick={subscribe} className="btn">Upgrade</button>
     </div>
   );
