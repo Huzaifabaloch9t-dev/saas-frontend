@@ -46,12 +46,8 @@ export default function Login() {
           backgroundImage:
             "url('/laptaop.png')",
         }}
-      ></div>
-
-      
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-
-      
+      ></div>      
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>      
       <div className="relative z-10 w-full max-w-md bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-white/20">
         <div className="text-center mb-8">
           <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-white/20 flex items-center justify-center text-2xl">
@@ -60,7 +56,6 @@ export default function Login() {
           <h1 className="text-3xl font-bold text-white">Welcome Back</h1>
           <p className="text-white/70 mt-1">Login to your AI Dashboard</p>
         </div>
-
         {error && (
           <div className="mb-5 flex items-center gap-2 p-3 rounded-lg bg-red-500/20 text-red-200 text-sm border border-red-400/30">
             <WifiOff className="w-4 h-4" />
