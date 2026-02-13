@@ -33,7 +33,6 @@ export default function Admin() {
         setLoading(false);
       })
       .catch((err) => {
-        // ✅ Handle 403 (Forbidden) separately
         if (err.response?.status === 403) {
           setError("Access denied. Admins only.");
         } else if (err.response?.status === 401) {
@@ -48,11 +47,11 @@ export default function Admin() {
 
   return (
     <div className="p-6">
-      {/* TypeWriter safe with text */}
       <TypeWriter text="Welcome to Admin Dashboard 🚀" />
 
       <h1 className="text-3xl mb-4 mt-4">Admin Panel</h1>
       <p className="mb-4">This is Admin Dashboard</p>
+      console.log(object)
 
       {loading && <p>Loading users...</p>}
 
