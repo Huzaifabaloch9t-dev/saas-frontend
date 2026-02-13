@@ -88,6 +88,7 @@ export default function Login() {
               className="w-full pl-10 pr-4 py-3 rounded-lg bg-white/20 text-white placeholder-white/50 outline-none focus:ring-2 focus:ring-white/40"
               onChange={(e) => setPassword(e.target.value)}
             />
+            console.log(object)
           </div>
         </div>
 
