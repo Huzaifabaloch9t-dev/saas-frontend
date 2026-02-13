@@ -45,7 +45,6 @@ export default function Register() {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center">
-      {/* ✅ Full screen background image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -53,11 +52,7 @@ export default function Register() {
             "url('/laptaop.png')",
         }}
       ></div>
-
-      {/* ✅ Dark overlay + blur */}
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-
-      {/* ✅ Form container */}
       <div className="relative z-10 w-full max-w-md bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-white/20">
         <div className="text-center mb-8">
           <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-white/20 flex items-center justify-center text-2xl">

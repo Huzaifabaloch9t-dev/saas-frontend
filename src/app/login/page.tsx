@@ -25,7 +25,7 @@ export default function Login() {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
-      window.location.href = "/dashboard"; // spelling fix
+      window.location.href = "/dashboard"; 
     } catch (err: any) {
       if (!err.response) {
         setError("🚫 Server is not reachable. Please try again later.");
@@ -39,7 +39,7 @@ export default function Login() {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center">
-      {/* ✅ Full-screen background image */}
+      
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -48,10 +48,10 @@ export default function Login() {
         }}
       ></div>
 
-      {/* ✅ Dark overlay + blur */}
+      
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
 
-      {/* ✅ Form container */}
+      
       <div className="relative z-10 w-full max-w-md bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-white/20">
         <div className="text-center mb-8">
           <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-white/20 flex items-center justify-center text-2xl">
